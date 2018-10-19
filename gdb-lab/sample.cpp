@@ -8,8 +8,8 @@ struct StudentNode_t {
 
 typedef StudentNode_t StudentNode;
 
-int main(int argc, char const *argv[]) {
-    StudentNode *head, *current, *current_read, *tmp;
+StudentNode* built_nodes() {
+    StudentNode *head, *current_read, *tmp;
     int studentIdTmp;
     while (std::cin >> studentIdTmp) {
         tmp = new StudentNode();
@@ -21,7 +21,13 @@ int main(int argc, char const *argv[]) {
         current_read->next = tmp;
         current_read = tmp;
     }
+    return head;
+}
 
+int main(int argc, char const *argv[]) {
+    StudentNode *head, *current;
+    
+    head = built_nodes();
     current = head;
     while (current) {
         std::cout << current->studentId << "\n";
